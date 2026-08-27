@@ -20,7 +20,8 @@ class HomeScreen extends StatelessWidget {
             subtitle: const Text('Gesto de estado compuesto'),
             trailing: const Icon(Icons.arrow_forward_ios_rounded),
             onTap: () => context.push('/bloc'),
-          )
+          ),
+          Padding(padding: const EdgeInsetsGeometry.symmetric(horizontal: 10), child: Divider())
         ],
       ),
     );
