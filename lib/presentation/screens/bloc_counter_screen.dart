@@ -15,7 +15,10 @@ class BlocCounterView extends StatelessWidget {
   const BlocCounterView({super.key});
 
   void increaseCounterBy(BuildContext context, [int value = 1]) {
-    context.read<CounterBloc>().add(CounterIncreased(value: value));
+    //context.read<CounterBloc>().add(CounterIncreased(value: value));
+
+    //disparar eventos dentro del BLoC
+    context.read<CounterBloc>().increaseBy(value);
   }
 
   @override
@@ -23,11 +26,14 @@ class BlocCounterView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: context.select(
-          (CounterBloc counterBloc) => Text('BLoC Counter ${counterBloc.state.transactionCount}')
+          (CounterBloc counterBloc) =>
+              Text('BLoC Counter ${counterBloc.state.transactionCount}'),
         ),
         actions: [
           IconButton(
-            onPressed: () => context.read<CounterBloc>().add(CounterReset()),
+            //onPressed: () => context.read<CounterBloc>().add(CounterReset()),
+            //Disparar eventos desde el BLoC
+            onPressed: () => context.read<CounterBloc>().resetCount(),
             icon: Icon(Icons.refresh_rounded),
           ),
         ],
