@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forms_app/presentation/widgets/widgets.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -25,20 +26,35 @@ class _RegisterView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               const FlutterLogo(size: 100),
-              TextFormField(),
-              TextFormField(),
-              TextFormField(),
-              TextFormField(),
-              const SizedBox(height: 20,),
-              FilledButton.tonalIcon(
-                onPressed: () {},
-                label: Text('Crear usuario'),
-                icon: Icon(Icons.save),
-              ),
+              _RegisterForm(),
               const SizedBox(height: 20),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _RegisterForm extends StatelessWidget {
+  const _RegisterForm();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          CustomTextFormField(),
+          const SizedBox(height: 10),
+          CustomTextFormField(),
+          SizedBox(height: 20,),
+          FilledButton.tonalIcon(
+            onPressed: () {},
+            label: Text('Crear usuario'),
+            icon: Icon(Icons.save),
+          ),
+        ],
       ),
     );
   }
