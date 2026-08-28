@@ -103,8 +103,8 @@ class _RegisterFormState extends State<_RegisterForm> {
           SizedBox(height: 20),
           FilledButton.tonalIcon(
             onPressed: () {
-              final isValid = _formKey.currentState!.validate();
-              if (!isValid) return;
+              // final isValid = _formKey.currentState!.validate();
+              // if (!isValid) return;
               registerCubit.onSubmit();
             },
             label: Text('Crear usuario'),
